@@ -4,7 +4,7 @@
 
 ### Project Schedule
 <hr>
-* 2024.06.20 Thursday ~ 
+2024.06.20 Thursday ~ 
 <br><br>
 
 ### Images
