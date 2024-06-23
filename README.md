@@ -1,5 +1,5 @@
 # Foodit
-우리만의 맛집 스토리(히스토리)
+나만의 맛집 스토리(히스토리)
 <br><br>
 
 ### Project Schedule
