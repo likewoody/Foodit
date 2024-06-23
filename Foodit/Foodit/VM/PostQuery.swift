@@ -55,21 +55,6 @@ class PostQuery: ObservableObject{
         }
     }
     
-    
-//    deinit{
-//        // 모든 SQL 문이 완료되었는지 확인
-//        sqlite3_exec(db, "COMMIT", nil, nil, nil)
-//        
-//        // 데이터베이스 닫기
-//        if sqlite3_close(db) != SQLITE_OK {
-//            print("Failed to close database")
-//        } else {
-//            print("Database closed successfully")
-//        }
-////        sqlite3_close(db)
-//    }
-    
-    
     // search Query
     // SwiftUI에서는 Protocol 사용 대신에 SearchQuery에서 [Student] type으로 바로 return 해준다.
     // 작업처리가 몇번 덜 움직이기 때문에 효율적이다.

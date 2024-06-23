@@ -23,6 +23,7 @@ struct Detail: View {
     @State var review: String = ""
     @State var image: UIImage?
     @State var isUpdate: Bool = false
+    @State var isDelete: Bool = false
     @State var selectedCategory: String = "음식"
     @State var categoryList = ["음식", "커피", "베이커리"]
     @FocusState var isTextfieldFocused: Bool
@@ -50,7 +51,7 @@ struct Detail: View {
                     VStack(content: {
                         // MARK: 사진 선택
                         PhotosPicker("사진 선택", selection: $selectedImg, matching: .images)
-                            .background(.gray)
+//                            .background(.gray)
                             .foregroundStyle(.orange)
                             .padding()
                             .onChange(of: selectedImg, {
@@ -145,12 +146,21 @@ struct Detail: View {
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        
+                        let query = PostQuery()
+                        isDelete = query.deleteDB(id: post.id)
                     }, label: {
                         Image(systemName: "trash")
                     }) // Button
                 } // ToolbarItem
             }) // toolbar
+            .alert("삭제가 완료 되었습니다.", isPresented: $isDelete) {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("확인")
+                }
+
+            }
             
 
         } // NavigationStack
