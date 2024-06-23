@@ -7,190 +7,193 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C8094D782C254700002EA6CA /* FooditApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8094D772C254700002EA6CA /* FooditApp.swift */; };
-		C8094D7A2C254700002EA6CA /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8094D792C254700002EA6CA /* MainMapView.swift */; };
-		C8094D7C2C254701002EA6CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8094D7B2C254701002EA6CA /* Assets.xcassets */; };
-		C8094D7F2C254701002EA6CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8094D7E2C254701002EA6CA /* Preview Assets.xcassets */; };
-		C8094D8B2C254BCE002EA6CA /* NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8094D8A2C254BCE002EA6CA /* NaverMap.swift */; };
-		C86D87B02C25C3E0004FAD72 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D87AF2C25C3E0004FAD72 /* MainTabView.swift */; };
-		C86D87B32C25C44F004FAD72 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D87B22C25C44F004FAD72 /* PostView.swift */; };
-		C86D87B52C25C659004FAD72 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D87B42C25C659004FAD72 /* Post.swift */; };
-		C8963FC12C26BD3A0074F770 /* ModalPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8963FC02C26BD3A0074F770 /* ModalPopup.swift */; };
-		C8963FC32C26BE290074F770 /* PostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8963FC22C26BE290074F770 /* PostQuery.swift */; };
-		C8A4FC292C254D7800264667 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4FC282C254D7800264667 /* Coordinator.swift */; };
-		C8A4FC2B2C25505500264667 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4FC2A2C25505500264667 /* FireStoreManager.swift */; };
-		C8A4FC332C25831600264667 /* UserSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4FC322C25831600264667 /* UserSearchQuery.swift */; };
-		C8A4FC352C25832C00264667 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4FC342C25832C00264667 /* LatLng.swift */; };
-		EE313114444929A7B8897563 /* Pods_Foodit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97B23CF87E886E04B2E29A4 /* Pods_Foodit.framework */; };
+		C80CDC212C27D426009B1690 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC202C27D426009B1690 /* Coordinator.swift */; };
+		C80CDC232C27D43E009B1690 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC222C27D43E009B1690 /* FireStoreManager.swift */; };
+		C80CDC252C27D4A1009B1690 /* UserSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */; };
+		C80CDC272C27D4B2009B1690 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC262C27D4B2009B1690 /* LatLng.swift */; };
+		C88A284D2C27D7E6002AA7FD /* ModalPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */; };
+		C88A284F2C27DC72002AA7FD /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284E2C27DC72002AA7FD /* Detail.swift */; };
+		C8BD4C3A2C27D0C6008B08C0 /* FooditApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */; };
+		C8BD4C3C2C27D0C6008B08C0 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C3B2C27D0C6008B08C0 /* PostView.swift */; };
+		C8BD4C3E2C27D0C7008B08C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8BD4C3D2C27D0C7008B08C0 /* Assets.xcassets */; };
+		C8BD4C412C27D0C7008B08C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8BD4C402C27D0C7008B08C0 /* Preview Assets.xcassets */; };
+		C8BD4C4D2C27D117008B08C0 /* PostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C4C2C27D117008B08C0 /* PostQuery.swift */; };
+		C8BD4C4F2C27D124008B08C0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C4E2C27D124008B08C0 /* Post.swift */; };
+		C8BD4C542C27D2C6008B08C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C532C27D2C6008B08C0 /* MainTabView.swift */; };
+		C8BD4C562C27D2E4008B08C0 /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */; };
+		C8BD4C592C27D2F9008B08C0 /* NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */; };
+		E271FC6AF1B1013DA74F918E /* Pods_Foodit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B0317179264C19E3E9EDA /* Pods_Foodit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05EA38F373861FDFA3AB8787 /* Pods-Foodit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodit.release.xcconfig"; path = "Target Support Files/Pods-Foodit/Pods-Foodit.release.xcconfig"; sourceTree = "<group>"; };
-		971BFBB105751CFEF3C55750 /* Pods-Foodit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodit.debug.xcconfig"; path = "Target Support Files/Pods-Foodit/Pods-Foodit.debug.xcconfig"; sourceTree = "<group>"; };
-		C8094D742C254700002EA6CA /* Foodit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8094D772C254700002EA6CA /* FooditApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooditApp.swift; sourceTree = "<group>"; };
-		C8094D792C254700002EA6CA /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
-		C8094D7B2C254701002EA6CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C8094D7E2C254701002EA6CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C8094D882C254801002EA6CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C8094D8A2C254BCE002EA6CA /* NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMap.swift; sourceTree = "<group>"; };
-		C86D87AF2C25C3E0004FAD72 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		C86D87B22C25C44F004FAD72 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		C86D87B42C25C659004FAD72 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		C8963FC02C26BD3A0074F770 /* ModalPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPopup.swift; sourceTree = "<group>"; };
-		C8963FC22C26BE290074F770 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
-		C8A4FC282C254D7800264667 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		C8A4FC2A2C25505500264667 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
-		C8A4FC322C25831600264667 /* UserSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchQuery.swift; sourceTree = "<group>"; };
-		C8A4FC342C25832C00264667 /* LatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
-		C97B23CF87E886E04B2E29A4 /* Pods_Foodit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3B0317179264C19E3E9EDA /* Pods_Foodit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC678805025EC81E87D2B74B /* Pods-Foodit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodit.debug.xcconfig"; path = "Target Support Files/Pods-Foodit/Pods-Foodit.debug.xcconfig"; sourceTree = "<group>"; };
+		C80CDC1F2C27D3FA009B1690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C80CDC202C27D426009B1690 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C80CDC222C27D43E009B1690 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
+		C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchQuery.swift; sourceTree = "<group>"; };
+		C80CDC262C27D4B2009B1690 /* LatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
+		C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPopup.swift; sourceTree = "<group>"; };
+		C88A284E2C27DC72002AA7FD /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		C8BD4C362C27D0C6008B08C0 /* Foodit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooditApp.swift; sourceTree = "<group>"; };
+		C8BD4C3B2C27D0C6008B08C0 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		C8BD4C3D2C27D0C7008B08C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8BD4C402C27D0C7008B08C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C8BD4C4C2C27D117008B08C0 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
+		C8BD4C4E2C27D124008B08C0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C8BD4C532C27D2C6008B08C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
+		C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMap.swift; sourceTree = "<group>"; };
+		D92D9C58D2627A9E70C006CC /* Pods-Foodit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodit.release.xcconfig"; path = "Target Support Files/Pods-Foodit/Pods-Foodit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C8094D712C254700002EA6CA /* Frameworks */ = {
+		C8BD4C332C27D0C6008B08C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE313114444929A7B8897563 /* Pods_Foodit.framework in Frameworks */,
+				E271FC6AF1B1013DA74F918E /* Pods_Foodit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EBC681A01395328A1B152E1 /* Frameworks */ = {
+		95D4BE330D83BDCCA912D972 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C97B23CF87E886E04B2E29A4 /* Pods_Foodit.framework */,
+				1F3B0317179264C19E3E9EDA /* Pods_Foodit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		80DF3D009D059773C89342A0 /* Pods */ = {
+		C8BD4C2D2C27D0C6008B08C0 = {
 			isa = PBXGroup;
 			children = (
-				971BFBB105751CFEF3C55750 /* Pods-Foodit.debug.xcconfig */,
-				05EA38F373861FDFA3AB8787 /* Pods-Foodit.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		C8094D6B2C254700002EA6CA = {
-			isa = PBXGroup;
-			children = (
-				C8094D762C254700002EA6CA /* Foodit */,
-				C8094D752C254700002EA6CA /* Products */,
-				80DF3D009D059773C89342A0 /* Pods */,
-				4EBC681A01395328A1B152E1 /* Frameworks */,
+				C8BD4C382C27D0C6008B08C0 /* Foodit */,
+				C8BD4C372C27D0C6008B08C0 /* Products */,
+				E7A1827E8620B39F4763CDA5 /* Pods */,
+				95D4BE330D83BDCCA912D972 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		C8094D752C254700002EA6CA /* Products */ = {
+		C8BD4C372C27D0C6008B08C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8094D742C254700002EA6CA /* Foodit.app */,
+				C8BD4C362C27D0C6008B08C0 /* Foodit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C8094D762C254700002EA6CA /* Foodit */ = {
+		C8BD4C382C27D0C6008B08C0 /* Foodit */ = {
 			isa = PBXGroup;
 			children = (
-				C8094D882C254801002EA6CA /* Info.plist */,
-				C8094D872C25474A002EA6CA /* View */,
-				C8094D862C254747002EA6CA /* Model */,
-				C8094D852C254744002EA6CA /* VM */,
-				C8094D772C254700002EA6CA /* FooditApp.swift */,
-				C8094D7B2C254701002EA6CA /* Assets.xcassets */,
-				C8094D7D2C254701002EA6CA /* Preview Content */,
+				C80CDC1F2C27D3FA009B1690 /* Info.plist */,
+				C8BD4C492C27D0D9008B08C0 /* View */,
+				C8BD4C482C27D0D4008B08C0 /* Model */,
+				C8BD4C472C27D0D1008B08C0 /* VM */,
+				C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */,
+				C8BD4C3D2C27D0C7008B08C0 /* Assets.xcassets */,
+				C8BD4C3F2C27D0C7008B08C0 /* Preview Content */,
 			);
 			path = Foodit;
 			sourceTree = "<group>";
 		};
-		C8094D7D2C254701002EA6CA /* Preview Content */ = {
+		C8BD4C3F2C27D0C7008B08C0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C8094D7E2C254701002EA6CA /* Preview Assets.xcassets */,
+				C8BD4C402C27D0C7008B08C0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C8094D852C254744002EA6CA /* VM */ = {
+		C8BD4C472C27D0D1008B08C0 /* VM */ = {
 			isa = PBXGroup;
 			children = (
-				C8963FC42C26CFFE0074F770 /* Map */,
-				C8A4FC322C25831600264667 /* UserSearchQuery.swift */,
-				C8963FC22C26BE290074F770 /* PostQuery.swift */,
+				C8BD4C572C27D2F4008B08C0 /* Map */,
+				C8BD4C4C2C27D117008B08C0 /* PostQuery.swift */,
+				C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
 		};
-		C8094D862C254747002EA6CA /* Model */ = {
+		C8BD4C482C27D0D4008B08C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C8A4FC342C25832C00264667 /* LatLng.swift */,
-				C86D87B42C25C659004FAD72 /* Post.swift */,
+				C8BD4C4E2C27D124008B08C0 /* Post.swift */,
+				C80CDC262C27D4B2009B1690 /* LatLng.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C8094D872C25474A002EA6CA /* View */ = {
+		C8BD4C492C27D0D9008B08C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C86D87B12C25C447004FAD72 /* Post */,
-				C86D87AC2C25C3B5004FAD72 /* Tab */,
-				C8094D892C254BC9002EA6CA /* Map */,
+				C8BD4C522C27D2BB008B08C0 /* Tab */,
+				C8BD4C4B2C27D0E3008B08C0 /* Post */,
+				C8BD4C4A2C27D0E0008B08C0 /* Map */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		C8094D892C254BC9002EA6CA /* Map */ = {
+		C8BD4C4A2C27D0E0008B08C0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C8094D792C254700002EA6CA /* MainMapView.swift */,
+				C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		C86D87AC2C25C3B5004FAD72 /* Tab */ = {
+		C8BD4C4B2C27D0E3008B08C0 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				C86D87AF2C25C3E0004FAD72 /* MainTabView.swift */,
-			);
-			path = Tab;
-			sourceTree = "<group>";
-		};
-		C86D87B12C25C447004FAD72 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				C86D87B22C25C44F004FAD72 /* PostView.swift */,
-				C8963FC02C26BD3A0074F770 /* ModalPopup.swift */,
+				C8BD4C3B2C27D0C6008B08C0 /* PostView.swift */,
+				C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */,
+				C88A284E2C27DC72002AA7FD /* Detail.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
 		};
-		C8963FC42C26CFFE0074F770 /* Map */ = {
+		C8BD4C522C27D2BB008B08C0 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				C8094D8A2C254BCE002EA6CA /* NaverMap.swift */,
-				C8A4FC282C254D7800264667 /* Coordinator.swift */,
-				C8A4FC2A2C25505500264667 /* FireStoreManager.swift */,
+				C8BD4C532C27D2C6008B08C0 /* MainTabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		C8BD4C572C27D2F4008B08C0 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */,
+				C80CDC202C27D426009B1690 /* Coordinator.swift */,
+				C80CDC222C27D43E009B1690 /* FireStoreManager.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		E7A1827E8620B39F4763CDA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC678805025EC81E87D2B74B /* Pods-Foodit.debug.xcconfig */,
+				D92D9C58D2627A9E70C006CC /* Pods-Foodit.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C8094D732C254700002EA6CA /* Foodit */ = {
+		C8BD4C352C27D0C6008B08C0 /* Foodit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8094D822C254701002EA6CA /* Build configuration list for PBXNativeTarget "Foodit" */;
+			buildConfigurationList = C8BD4C442C27D0C7008B08C0 /* Build configuration list for PBXNativeTarget "Foodit" */;
 			buildPhases = (
-				68EA48FD2F07F14C82EC09F4 /* [CP] Check Pods Manifest.lock */,
-				C8094D702C254700002EA6CA /* Sources */,
-				C8094D712C254700002EA6CA /* Frameworks */,
-				C8094D722C254700002EA6CA /* Resources */,
-				08CC9C3365E9D69D3C994B94 /* [CP] Embed Pods Frameworks */,
+				C6CA6DEE202C5A7C955C98A3 /* [CP] Check Pods Manifest.lock */,
+				C8BD4C322C27D0C6008B08C0 /* Sources */,
+				C8BD4C332C27D0C6008B08C0 /* Frameworks */,
+				C8BD4C342C27D0C6008B08C0 /* Resources */,
+				192456C4C82F11B1536482BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,25 +201,25 @@
 			);
 			name = Foodit;
 			productName = Foodit;
-			productReference = C8094D742C254700002EA6CA /* Foodit.app */;
+			productReference = C8BD4C362C27D0C6008B08C0 /* Foodit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C8094D6C2C254700002EA6CA /* Project object */ = {
+		C8BD4C2E2C27D0C6008B08C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					C8094D732C254700002EA6CA = {
+					C8BD4C352C27D0C6008B08C0 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = C8094D6F2C254700002EA6CA /* Build configuration list for PBXProject "Foodit" */;
+			buildConfigurationList = C8BD4C312C27D0C6008B08C0 /* Build configuration list for PBXProject "Foodit" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
@@ -225,30 +228,30 @@
 				Base,
 				ko,
 			);
-			mainGroup = C8094D6B2C254700002EA6CA;
-			productRefGroup = C8094D752C254700002EA6CA /* Products */;
+			mainGroup = C8BD4C2D2C27D0C6008B08C0;
+			productRefGroup = C8BD4C372C27D0C6008B08C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C8094D732C254700002EA6CA /* Foodit */,
+				C8BD4C352C27D0C6008B08C0 /* Foodit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C8094D722C254700002EA6CA /* Resources */ = {
+		C8BD4C342C27D0C6008B08C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8094D7F2C254701002EA6CA /* Preview Assets.xcassets in Resources */,
-				C8094D7C2C254701002EA6CA /* Assets.xcassets in Resources */,
+				C8BD4C412C27D0C7008B08C0 /* Preview Assets.xcassets in Resources */,
+				C8BD4C3E2C27D0C7008B08C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08CC9C3365E9D69D3C994B94 /* [CP] Embed Pods Frameworks */ = {
+		192456C4C82F11B1536482BD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,7 +268,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foodit/Pods-Foodit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		68EA48FD2F07F14C82EC09F4 /* [CP] Check Pods Manifest.lock */ = {
+		C6CA6DEE202C5A7C955C98A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,29 +293,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C8094D702C254700002EA6CA /* Sources */ = {
+		C8BD4C322C27D0C6008B08C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8A4FC352C25832C00264667 /* LatLng.swift in Sources */,
-				C8A4FC292C254D7800264667 /* Coordinator.swift in Sources */,
-				C8094D7A2C254700002EA6CA /* MainMapView.swift in Sources */,
-				C86D87B02C25C3E0004FAD72 /* MainTabView.swift in Sources */,
-				C8094D782C254700002EA6CA /* FooditApp.swift in Sources */,
-				C86D87B32C25C44F004FAD72 /* PostView.swift in Sources */,
-				C8A4FC2B2C25505500264667 /* FireStoreManager.swift in Sources */,
-				C86D87B52C25C659004FAD72 /* Post.swift in Sources */,
-				C8094D8B2C254BCE002EA6CA /* NaverMap.swift in Sources */,
-				C8A4FC332C25831600264667 /* UserSearchQuery.swift in Sources */,
-				C8963FC32C26BE290074F770 /* PostQuery.swift in Sources */,
-				C8963FC12C26BD3A0074F770 /* ModalPopup.swift in Sources */,
+				C8BD4C3C2C27D0C6008B08C0 /* PostView.swift in Sources */,
+				C8BD4C562C27D2E4008B08C0 /* MainMapView.swift in Sources */,
+				C8BD4C4D2C27D117008B08C0 /* PostQuery.swift in Sources */,
+				C80CDC232C27D43E009B1690 /* FireStoreManager.swift in Sources */,
+				C8BD4C592C27D2F9008B08C0 /* NaverMap.swift in Sources */,
+				C80CDC272C27D4B2009B1690 /* LatLng.swift in Sources */,
+				C8BD4C3A2C27D0C6008B08C0 /* FooditApp.swift in Sources */,
+				C8BD4C542C27D2C6008B08C0 /* MainTabView.swift in Sources */,
+				C80CDC252C27D4A1009B1690 /* UserSearchQuery.swift in Sources */,
+				C88A284D2C27D7E6002AA7FD /* ModalPopup.swift in Sources */,
+				C8BD4C4F2C27D124008B08C0 /* Post.swift in Sources */,
+				C80CDC212C27D426009B1690 /* Coordinator.swift in Sources */,
+				C88A284F2C27DC72002AA7FD /* Detail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C8094D802C254701002EA6CA /* Debug */ = {
+		C8BD4C422C27D0C7008B08C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -375,7 +379,7 @@
 			};
 			name = Debug;
 		};
-		C8094D812C254701002EA6CA /* Release */ = {
+		C8BD4C432C27D0C7008B08C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,9 +435,9 @@
 			};
 			name = Release;
 		};
-		C8094D832C254701002EA6CA /* Debug */ = {
+		C8BD4C452C27D0C7008B08C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 971BFBB105751CFEF3C55750 /* Pods-Foodit.debug.xcconfig */;
+			baseConfigurationReference = AC678805025EC81E87D2B74B /* Pods-Foodit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,9 +468,9 @@
 			};
 			name = Debug;
 		};
-		C8094D842C254701002EA6CA /* Release */ = {
+		C8BD4C462C27D0C7008B08C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05EA38F373861FDFA3AB8787 /* Pods-Foodit.release.xcconfig */;
+			baseConfigurationReference = D92D9C58D2627A9E70C006CC /* Pods-Foodit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -500,25 +504,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C8094D6F2C254700002EA6CA /* Build configuration list for PBXProject "Foodit" */ = {
+		C8BD4C312C27D0C6008B08C0 /* Build configuration list for PBXProject "Foodit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C8094D802C254701002EA6CA /* Debug */,
-				C8094D812C254701002EA6CA /* Release */,
+				C8BD4C422C27D0C7008B08C0 /* Debug */,
+				C8BD4C432C27D0C7008B08C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8094D822C254701002EA6CA /* Build configuration list for PBXNativeTarget "Foodit" */ = {
+		C8BD4C442C27D0C7008B08C0 /* Build configuration list for PBXNativeTarget "Foodit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C8094D832C254701002EA6CA /* Debug */,
-				C8094D842C254701002EA6CA /* Release */,
+				C8BD4C452C27D0C7008B08C0 /* Debug */,
+				C8BD4C462C27D0C7008B08C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C8094D6C2C254700002EA6CA /* Project object */;
+	rootObject = C8BD4C2E2C27D0C6008B08C0 /* Project object */;
 }

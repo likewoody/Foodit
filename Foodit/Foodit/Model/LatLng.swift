@@ -2,7 +2,7 @@
 //  LatLng.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 struct LatLng: Decodable{
@@ -14,3 +14,4 @@ struct LatLng: Decodable{
         self.lng = lng
     }
 }
+

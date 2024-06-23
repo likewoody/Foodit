@@ -1,11 +1,10 @@
 //
-//  Foodlist.swift
+//  Post.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
-import Foundation
 import UIKit
 
 struct Post{

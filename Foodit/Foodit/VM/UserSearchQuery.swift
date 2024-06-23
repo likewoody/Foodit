@@ -1,8 +1,8 @@
 //
-//  LatLng.swift
+//  UserSearchQuery.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 import Foundation
@@ -14,3 +14,4 @@ struct SearchPlace{
         return try JSONDecoder().decode(LatLng.self, from: data)
     }
 }
+

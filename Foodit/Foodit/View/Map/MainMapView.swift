@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
+//  MainMapView.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 import SwiftUI
@@ -12,9 +12,6 @@ struct MainMapView: View {
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var search: String = ""
     @FocusState var isTextFieldFocused: Bool
-    
-
-
 
     var body: some View {
         GeometryReader(content: { geometry in
@@ -54,6 +51,7 @@ struct MainMapView: View {
                 Spacer()
 
             } // ZStack
+            .preferredColorScheme(.light)
             .onAppear {
                 Coordinator.shared.checkIfLocationServiceIsEnabled()
     //                    Task {

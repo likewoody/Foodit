@@ -2,7 +2,7 @@
 //  Coordinator.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 import UIKit
@@ -99,7 +99,7 @@ class Coordinator: NSObject, ObservableObject,
         }
     }
     
-    // 1. MapView의 .onAppear()로 실행 
+    // 1. MapView의 .onAppear()로 실행
     func checkIfLocationServiceIsEnabled() {
         DispatchQueue.global().async {
             // locationServicesEnabled true of false

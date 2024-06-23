@@ -2,7 +2,7 @@
 //  FireStoreManager.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 //import Foundation
@@ -11,11 +11,11 @@
 //class FireStoreManager: ObservableObject {
 //    @Published var mylat: Double = 0
 //    @Published var mylng: Double = 0
-//    
+//
 //    func fetchData() async {
 //        let db = Firestore.firestore()
 //        let docRef = db.collection("freeboard").document("EBvvECgiQidPmdWf0Byq")
-//        
+//
 //        do {
 //            let document = try await docRef.getDocument()
 //            if document.exists {
@@ -31,3 +31,4 @@
 //        }
 //    }
 //}
+

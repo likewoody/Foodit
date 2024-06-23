@@ -1,9 +1,11 @@
 //
-//  MainTabView.swift
+//  MainTab.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
+
+import SwiftUI
 
 /*
  Author : Woody

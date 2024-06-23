@@ -2,7 +2,7 @@
 //  PostQuery.swift
 //  Foodit
 //
-//  Created by Woody on 6/22/24.
+//  Created by Woody on 6/23/24.
 //
 
 import SwiftUI // for UIImage
@@ -46,8 +46,6 @@ class PostQuery: ObservableObject{
             image BLOB
         )
         """
-        
-        
         // Table 만들기
         // DOUBLE 대신에 => REAL 사용
         if sqlite3_exec(db, createTableQuery, nil, nil, nil) != SQLITE_OK {
@@ -58,9 +56,18 @@ class PostQuery: ObservableObject{
     }
     
     
-    deinit{
-        sqlite3_close(db)
-    }
+//    deinit{
+//        // 모든 SQL 문이 완료되었는지 확인
+//        sqlite3_exec(db, "COMMIT", nil, nil, nil)
+//        
+//        // 데이터베이스 닫기
+//        if sqlite3_close(db) != SQLITE_OK {
+//            print("Failed to close database")
+//        } else {
+//            print("Database closed successfully")
+//        }
+////        sqlite3_close(db)
+//    }
     
     
     // search Query
@@ -68,7 +75,7 @@ class PostQuery: ObservableObject{
     // 작업처리가 몇번 덜 움직이기 때문에 효율적이다.
     func searchDB() -> [Post]{
         var stmt: OpaquePointer?
-        let queryString = "SELECT * FROM post"
+        let queryString = "SELECT * FROM post ORDER BY date DESC"
         
         // 에러가 발생하는지 확인하기 위해서 if문 사용
         // -1 unlimit length 데이터 크기를 의미한다
@@ -139,32 +146,38 @@ class PostQuery: ObservableObject{
     
     
     // update query
-    func updateDB(name: String, newAddress: String, oldAddress: String, phone: String, operationTime: String, date: String, review: String, lat: Double, lng: Double, image: UIImage, id: Int) -> Bool{
+//    newAddress: String, oldAddress: String, phone: String, operationTime: String,
+    //lat: Double, lng: Double,
+    func updateDB(name: String, date: String, review: String, category: String, image: UIImage, id: Int) -> Bool{
         var stmt: OpaquePointer?
         
         // 2 bytes의 코드를 쓰는 곳에서 사용함 (한글)
         // -1 unlimit length 데이터 크기를 의미한다
         let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-        let queryString = "UPDATE post SET name = ?, newAddress = ?, oldAddress = ?, phone = ?, operationTime = ?, date = ?, review = ?, lat = ?, lng = ?, image = ? WHERE id = ?"
+        let queryString = "UPDATE post SET name = ?, date = ?, review = ?, category = ?, image = ? WHERE id = ?"
+        
+//        newAddress = ?, oldAddress = ?, phone = ?, operationTime = ?,
+//        lat = ?, lng = ?,
         
         sqlite3_prepare(db, queryString, -1, &stmt, nil)
         
         // insert 실행
         // type이 text이기 때문에 bind_text 타입 잘 확인
         sqlite3_bind_text(stmt, 1, name, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 2, newAddress, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 3, oldAddress, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 4, phone, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 5, operationTime, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 6, date, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 7, review, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_double(stmt, 8, Double(Int32(lat)))
-        sqlite3_bind_double(stmt, 9, Double(Int32(lng)))
+//        sqlite3_bind_text(stmt, 2, newAddress, -1, SQLITE_TRANSIENT)
+//        sqlite3_bind_text(stmt, 3, oldAddress, -1, SQLITE_TRANSIENT)
+//        sqlite3_bind_text(stmt, 4, phone, -1, SQLITE_TRANSIENT)
+//        sqlite3_bind_text(stmt, 5, operationTime, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 2, date, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 3, review, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 4, category, -1, SQLITE_TRANSIENT)
+//        sqlite3_bind_double(stmt, 8, Double(Int32(lat)))
+//        sqlite3_bind_double(stmt, 9, Double(Int32(lng)))
         
         let blobImg = image.jpegData(compressionQuality: 0.4)! as NSData
-        sqlite3_bind_blob(stmt, 10, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
+        sqlite3_bind_blob(stmt, 5, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
         
-        sqlite3_bind_int(stmt, 11, Int32(id))
+        sqlite3_bind_int(stmt, 6, Int32(id))
         
         if sqlite3_step(stmt) == SQLITE_DONE {
             return true

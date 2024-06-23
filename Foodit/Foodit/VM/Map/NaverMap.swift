@@ -1,8 +1,8 @@
 //
-//  NaverMAp.swift
+//  NaverMap.swift
 //  Foodit
 //
-//  Created by Woody on 6/21/24.
+//  Created by Woody on 6/23/24.
 //
 
 import SwiftUI
@@ -22,5 +22,4 @@ struct NaverMap: UIViewRepresentable {
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {}
     
 }
-
 

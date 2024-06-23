@@ -6,6 +6,6 @@ target 'Foodit' do
   use_frameworks!
 
   # Pods for Foodit
-  pod 'NMapsMap'
+    pod 'NMapsMap'
 
 end
