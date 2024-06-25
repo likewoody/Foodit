@@ -40,8 +40,7 @@ Used API
 #### Insert
 
 <img src="https://github.com/likewoody/Foodit/assets/151493474/42e4579e-5cc5-4688-bcdf-bfb8196b9029">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/b6933833-7268-45e1-826c-7ceaabdc257e">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/1e03196f-ffa3-46a1-8e00-9129012a409d"><br>
+<img src="https://github.com/likewoody/Foodit/assets/151493474/b6933833-7268-45e1-826c-7ceaabdc257e"><br>
 
 <img src="https://github.com/likewoody/Foodit/assets/151493474/9f268c79-75cb-4ed2-96ed-07ad40eacd32">
 
