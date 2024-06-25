@@ -4,7 +4,9 @@
 
 ### Project Schedule
 <hr>
-2024.06.21 Friday ~ 2024.06.24 Monday
+2024.06.21 Friday ~ 2024.06.24 Monday<br><br>
+<img width="829" alt="Screenshot 2024-06-25 at 3 35 54 PM" src="https://github.com/likewoody/Foodit/assets/151493474/cec834dd-a77d-4cc1-8e38-4480bf72fdcf">
+
 <br><br>
 
 
