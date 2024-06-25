@@ -10,12 +10,12 @@
 
 ### Skills
 <hr>
-Platform : SwiftUI
-Design pattern : MVVM
-Database : SQLite
-Server : Flask (RESTFUL API)
-Used API
-- Google Maps
+Platform : SwiftUI<br>
+Design pattern : MVVM<br>
+Database : SQLite<br>
+Server : Flask (RESTFUL API)<br>
+Used API<br>
+- Google Maps<br>
 - Naver ReverseGeo
 
 <br><br>
