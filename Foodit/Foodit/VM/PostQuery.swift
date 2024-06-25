@@ -22,7 +22,7 @@ class PostQuery: ObservableObject{
             for: .documentDirectory,
             in: .userDomainMask,
             appropriateFor: nil,
-            create: false).appendingPathComponent("postList.sqlite")
+            create: false).appendingPathComponent("sqlitePost.sqlite")
         
         // percent 글자 = 한글
         // c 언어 포인터로 쓰는 방법이라 &db<&의 역할 주소 연산자(위치)>라고 사용한다
@@ -34,10 +34,7 @@ class PostQuery: ObservableObject{
         CREATE TABLE IF NOT EXISTS post(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
-            newAddress TEXT,
-            oldAddress TEXT,
-            phone TEXT,
-            operationTime TEXT,
+            address TEXT,
             date TEXT,
             review TEXT,
             category TEXT,
@@ -73,52 +70,52 @@ class PostQuery: ObservableObject{
         while(sqlite3_step(stmt) == SQLITE_ROW) {
             let id = Int(sqlite3_column_int(stmt, 0))
             let name = String(cString: sqlite3_column_text(stmt, 1))
-//            let newAddress = String(cString: sqlite3_column_text(stmt, 2))
-//            let oldAddress = String(cString: sqlite3_column_text(stmt, 3))
-//            let phone = String(cString: sqlite3_column_text(stmt, 4))
-//            let operationTime = String(cString: sqlite3_column_text(stmt, 5))
-            let date = String(cString: sqlite3_column_text(stmt, 6))
-            let review = String(cString: sqlite3_column_text(stmt, 7))
-            let category = String(cString: sqlite3_column_text(stmt, 8))
-//            let lat = Double(sqlite3_column_int(stmt, 9))
-//            let lng = Double(sqlite3_column_int(stmt, 10))
+            let address = String(cString: sqlite3_column_text(stmt, 2))
+            let date = String(cString: sqlite3_column_text(stmt, 3))
+            let review = String(cString: sqlite3_column_text(stmt, 4))
+            let category = String(cString: sqlite3_column_text(stmt, 5))
+            let lat = Double(sqlite3_column_double(stmt, 6))
+            let lng = Double(sqlite3_column_double(stmt, 7))
             
             var image: UIImage = UIImage()
             // Blob 이미지를 UIImage로 만들기
-            if let blobImg = sqlite3_column_blob(stmt, 11) {
-                let blobImgLength = sqlite3_column_bytes(stmt, 11)
+            if let blobImg = sqlite3_column_blob(stmt, 8) {
+                let blobImgLength = sqlite3_column_bytes(stmt, 8)
                 let img = Data(bytes: blobImg, count: Int(blobImgLength))
                 image = UIImage(data: img)!
             }
             
-            post.append(Post(id: id, name: name, date: date, review: review, category: category, image: image))
-//            post.append(Post(id: id, name: name, newAddress: newAddress, oldAddress: oldAddress, phone: phone, operationTime: operationTime, date: date, review: review, category: category, lat: lat, lng: lng, image: image))
+            post.append(Post(id: id, name: name, address: address, date: date, review: review, category: category, lat: lat, lng: lng, image: image))
         }
         return post
     }
     
     
     // insert
-    func insertDB(name: String, date: String, review: String, category: String, image: UIImage) -> Bool{
+    func insertDB(name: String, address: String, date: String, review: String, category: String, lat: Double, lng: Double, image: UIImage) -> Bool{
+
         var stmt: OpaquePointer?
         
         // 2 bytes의 코드를 쓰는 곳에서 사용함 (한글)
         // -1 unlimit length 데이터 크기를 의미한다
         let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-        let queryString = "INSERT INTO post (name, date, review, category, image) VALUES (?,?,?,?,?)"
+        let queryString = "INSERT INTO post (name, address, date, review, category, lat, lng, image) VALUES (?,?,?,?,?,?,?,?)"
         
         sqlite3_prepare(db, queryString, -1, &stmt, nil)
         
         // insert 실행
         // type이 text이기 때문에 bind_text 타입 잘 확인
         sqlite3_bind_text(stmt, 1, name, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 2, date, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 3, review, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 4, category, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 2, address, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 3, date, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 4, review, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 5, category, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_double(stmt, 6, Double(lat))
+        sqlite3_bind_double(stmt, 7, Double(lng))
         
         // c로 짜여진 방법이기 때문에 NSData alias 설정 0.4는 크기
         let blobImg = image.jpegData(compressionQuality: 0.4)! as NSData
-        sqlite3_bind_blob(stmt, 5, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
+        sqlite3_bind_blob(stmt, 8, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
         
         
         if sqlite3_step(stmt) == SQLITE_DONE {
@@ -131,38 +128,28 @@ class PostQuery: ObservableObject{
     
     
     // update query
-//    newAddress: String, oldAddress: String, phone: String, operationTime: String,
-    //lat: Double, lng: Double,
-    func updateDB(name: String, date: String, review: String, category: String, image: UIImage, id: Int) -> Bool{
+
+    
+    func updateDB(date: String, review: String, category: String, image: UIImage, id: Int) -> Bool{
         var stmt: OpaquePointer?
         
         // 2 bytes의 코드를 쓰는 곳에서 사용함 (한글)
         // -1 unlimit length 데이터 크기를 의미한다
         let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-        let queryString = "UPDATE post SET name = ?, date = ?, review = ?, category = ?, image = ? WHERE id = ?"
-        
-//        newAddress = ?, oldAddress = ?, phone = ?, operationTime = ?,
-//        lat = ?, lng = ?,
+        let queryString = "UPDATE post SET date = ?, review = ?, category = ?, image = ? WHERE id = ?"
         
         sqlite3_prepare(db, queryString, -1, &stmt, nil)
         
-        // insert 실행
+        // update 실행
         // type이 text이기 때문에 bind_text 타입 잘 확인
-        sqlite3_bind_text(stmt, 1, name, -1, SQLITE_TRANSIENT)
-//        sqlite3_bind_text(stmt, 2, newAddress, -1, SQLITE_TRANSIENT)
-//        sqlite3_bind_text(stmt, 3, oldAddress, -1, SQLITE_TRANSIENT)
-//        sqlite3_bind_text(stmt, 4, phone, -1, SQLITE_TRANSIENT)
-//        sqlite3_bind_text(stmt, 5, operationTime, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 2, date, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 3, review, -1, SQLITE_TRANSIENT)
-        sqlite3_bind_text(stmt, 4, category, -1, SQLITE_TRANSIENT)
-//        sqlite3_bind_double(stmt, 8, Double(Int32(lat)))
-//        sqlite3_bind_double(stmt, 9, Double(Int32(lng)))
+        sqlite3_bind_text(stmt, 1, date, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 2, review, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(stmt, 3, category, -1, SQLITE_TRANSIENT)
         
         let blobImg = image.jpegData(compressionQuality: 0.4)! as NSData
-        sqlite3_bind_blob(stmt, 5, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
+        sqlite3_bind_blob(stmt, 4, blobImg.bytes, Int32(blobImg.length), SQLITE_TRANSIENT)
         
-        sqlite3_bind_int(stmt, 6, Int32(id))
+        sqlite3_bind_int(stmt, 5, Int32(id))
         
         if sqlite3_step(stmt) == SQLITE_DONE {
             return true

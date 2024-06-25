@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		C80CDC212C27D426009B1690 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC202C27D426009B1690 /* Coordinator.swift */; };
 		C80CDC232C27D43E009B1690 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC222C27D43E009B1690 /* FireStoreManager.swift */; };
-		C80CDC252C27D4A1009B1690 /* UserSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */; };
-		C80CDC272C27D4B2009B1690 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC262C27D4B2009B1690 /* LatLng.swift */; };
+		C80CDC252C27D4A1009B1690 /* ConnectWithPython.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC242C27D4A1009B1690 /* ConnectWithPython.swift */; };
+		C80CDC272C27D4B2009B1690 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC262C27D4B2009B1690 /* Python.swift */; };
+		C847C0C92C28406D00BF9C43 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C847C0C82C28406D00BF9C43 /* BottomSheet.swift */; };
 		C88A284D2C27D7E6002AA7FD /* ModalPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */; };
 		C88A284F2C27DC72002AA7FD /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284E2C27DC72002AA7FD /* Detail.swift */; };
 		C8BD4C3A2C27D0C6008B08C0 /* FooditApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */; };
@@ -22,6 +23,9 @@
 		C8BD4C542C27D2C6008B08C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C532C27D2C6008B08C0 /* MainTabView.swift */; };
 		C8BD4C562C27D2E4008B08C0 /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */; };
 		C8BD4C592C27D2F9008B08C0 /* NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */; };
+		C8FF583D2C29662C001F65F8 /* MapDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF583C2C29662C001F65F8 /* MapDetail.swift */; };
+		C8FF583F2C296AFD001F65F8 /* MapDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF583E2C296AFD001F65F8 /* MapDetailModel.swift */; };
+		C8FF58412C296B51001F65F8 /* MapDetailQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF58402C296B51001F65F8 /* MapDetailQuery.swift */; };
 		E271FC6AF1B1013DA74F918E /* Pods_Foodit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3B0317179264C19E3E9EDA /* Pods_Foodit.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +35,9 @@
 		C80CDC1F2C27D3FA009B1690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C80CDC202C27D426009B1690 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C80CDC222C27D43E009B1690 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
-		C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchQuery.swift; sourceTree = "<group>"; };
-		C80CDC262C27D4B2009B1690 /* LatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
+		C80CDC242C27D4A1009B1690 /* ConnectWithPython.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithPython.swift; sourceTree = "<group>"; };
+		C80CDC262C27D4B2009B1690 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
+		C847C0C82C28406D00BF9C43 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPopup.swift; sourceTree = "<group>"; };
 		C88A284E2C27DC72002AA7FD /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		C8BD4C362C27D0C6008B08C0 /* Foodit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +50,9 @@
 		C8BD4C532C27D2C6008B08C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
 		C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMap.swift; sourceTree = "<group>"; };
+		C8FF583C2C29662C001F65F8 /* MapDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetail.swift; sourceTree = "<group>"; };
+		C8FF583E2C296AFD001F65F8 /* MapDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailModel.swift; sourceTree = "<group>"; };
+		C8FF58402C296B51001F65F8 /* MapDetailQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailQuery.swift; sourceTree = "<group>"; };
 		D92D9C58D2627A9E70C006CC /* Pods-Foodit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodit.release.xcconfig"; path = "Target Support Files/Pods-Foodit/Pods-Foodit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +121,7 @@
 			children = (
 				C8BD4C572C27D2F4008B08C0 /* Map */,
 				C8BD4C4C2C27D117008B08C0 /* PostQuery.swift */,
-				C80CDC242C27D4A1009B1690 /* UserSearchQuery.swift */,
+				C80CDC242C27D4A1009B1690 /* ConnectWithPython.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -122,7 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				C8BD4C4E2C27D124008B08C0 /* Post.swift */,
-				C80CDC262C27D4B2009B1690 /* LatLng.swift */,
+				C8FF583E2C296AFD001F65F8 /* MapDetailModel.swift */,
+				C80CDC262C27D4B2009B1690 /* Python.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +149,7 @@
 		C8BD4C4A2C27D0E0008B08C0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C8FF583C2C29662C001F65F8 /* MapDetail.swift */,
 				C8BD4C552C27D2E4008B08C0 /* MainMapView.swift */,
 			);
 			path = Map;
@@ -151,6 +161,7 @@
 				C8BD4C3B2C27D0C6008B08C0 /* PostView.swift */,
 				C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */,
 				C88A284E2C27DC72002AA7FD /* Detail.swift */,
+				C847C0C82C28406D00BF9C43 /* BottomSheet.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 				C8BD4C582C27D2F9008B08C0 /* NaverMap.swift */,
 				C80CDC202C27D426009B1690 /* Coordinator.swift */,
 				C80CDC222C27D43E009B1690 /* FireStoreManager.swift */,
+				C8FF58402C296B51001F65F8 /* MapDetailQuery.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -299,13 +311,17 @@
 			files = (
 				C8BD4C3C2C27D0C6008B08C0 /* PostView.swift in Sources */,
 				C8BD4C562C27D2E4008B08C0 /* MainMapView.swift in Sources */,
+				C847C0C92C28406D00BF9C43 /* BottomSheet.swift in Sources */,
 				C8BD4C4D2C27D117008B08C0 /* PostQuery.swift in Sources */,
 				C80CDC232C27D43E009B1690 /* FireStoreManager.swift in Sources */,
 				C8BD4C592C27D2F9008B08C0 /* NaverMap.swift in Sources */,
-				C80CDC272C27D4B2009B1690 /* LatLng.swift in Sources */,
+				C80CDC272C27D4B2009B1690 /* Python.swift in Sources */,
+				C8FF58412C296B51001F65F8 /* MapDetailQuery.swift in Sources */,
+				C8FF583F2C296AFD001F65F8 /* MapDetailModel.swift in Sources */,
 				C8BD4C3A2C27D0C6008B08C0 /* FooditApp.swift in Sources */,
 				C8BD4C542C27D2C6008B08C0 /* MainTabView.swift in Sources */,
-				C80CDC252C27D4A1009B1690 /* UserSearchQuery.swift in Sources */,
+				C8FF583D2C29662C001F65F8 /* MapDetail.swift in Sources */,
+				C80CDC252C27D4A1009B1690 /* ConnectWithPython.swift in Sources */,
 				C88A284D2C27D7E6002AA7FD /* ModalPopup.swift in Sources */,
 				C8BD4C4F2C27D124008B08C0 /* Post.swift in Sources */,
 				C80CDC212C27D426009B1690 /* Coordinator.swift in Sources */,

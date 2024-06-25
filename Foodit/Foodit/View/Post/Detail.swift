@@ -18,12 +18,13 @@ import PhotosUI
 struct Detail: View {
     
     // MARK: Property
-    let post: Post
+    @State var post: Post
     @State var name: String = ""
     @State var review: String = ""
     @State var image: UIImage?
     @State var isUpdate: Bool = false
     @State var isDelete: Bool = false
+    @State var isDeleteDone: Bool = false
     @State var selectedCategory: String = "음식"
     @State var categoryList = ["음식", "커피", "베이커리"]
     @FocusState var isTextfieldFocused: Bool
@@ -76,8 +77,9 @@ struct Detail: View {
                         
                         HStack(content: {
                             Spacer()
-                            Text("가게 상호명 (정확한 상호명)")
+                            Text("가게 상호명 (수정 불가)")
                                 .padding(.leading, 18)
+
                             
                             Spacer()
                             
@@ -89,18 +91,23 @@ struct Detail: View {
                             .padding()
                             .pickerStyle(.menu)
                             .colorInvert()
-                        })
+                        }) // HStack
                             .padding(.trailing, geometry.size.width / 4)
+                        
+                        // name Text Editor
                         TextEditor(text: $name)
                             .border(.gray.opacity(0.2))
+                            .foregroundStyle(.gray.opacity(0.8))
                             .textFieldStyle(.roundedBorder)
                             .multilineTextAlignment(.leading)
                             .frame(width: geometry.size.width / 1.3, height: geometry.size.height / 20)
                             .focused($isTextfieldFocused)
                             .padding(.bottom, 15)
+                            .disabled(true)
                         
                         Text("후기 남기기")
                             .padding(.trailing, geometry.size.width / 2)
+                        // review Text Editor
                         TextEditor(text: $review)
                             .border(.gray.opacity(0.2))
                             .multilineTextAlignment(.leading)
@@ -110,11 +117,11 @@ struct Detail: View {
                             .padding(.bottom, 15)
                         
                         Button(action: {
+                            
                             let insertDate = dateFormatter.string(from: currentDate)
                             
                             let query = PostQuery()
-                            isUpdate = query.updateDB(name: name, date: insertDate, review: review, category: selectedCategory, image: image!, id: post.id)
-                            
+                            isUpdate = query.updateDB(date: insertDate, review: review, category: selectedCategory, image: image!, id: post.id)
                             if isUpdate {
                                 print("inserted sucessfully !!")
                             }else{
@@ -130,7 +137,6 @@ struct Detail: View {
                                 .clipShape(.rect(cornerRadius: 20))
                         }) // Button
                     }) // VStack
-//                    .offset(x:geometry.size.width / geometry.size.width, y: geometry.size.height / geometry.size.height - 50)
                     .alert("수정이 완료 되었습니다.", isPresented: $isUpdate) {
                         Button(action: {
                             dismiss()
@@ -140,29 +146,27 @@ struct Detail: View {
                     } // alert
                     
                 } // ScrollView
+                
 
             }) // GeometryRedaer
             .preferredColorScheme(.light)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        let query = PostQuery()
-                        isDelete = query.deleteDB(id: post.id)
+                        isDelete = true
                     }, label: {
                         Image(systemName: "trash")
                     }) // Button
                 } // ToolbarItem
+                
             }) // toolbar
-            .alert("삭제가 완료 되었습니다.", isPresented: $isDelete) {
-                Button {
-                    dismiss()
-                } label: {
-                    Text("확인")
-                }
-
+            .fullScreenCover(isPresented: $isDelete) {
+                BottomSheet(isDelete: $isDelete, post: $post, isDeleteDone: $isDeleteDone)
+                    .background(BackgroundClearView())
             }
-            
-
+            .onChange(of: isDeleteDone) {
+                dismiss()
+            }
         } // NavigationStack
         .onAppear(perform: {
             loadData()
@@ -177,6 +181,19 @@ struct Detail: View {
     }
 }
 
-//#Preview {
-//    Detail()
-//}
+struct BackgroundClearView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
+
+
+#Preview {
+    Detail(post: Post(id: 0, name: "", address: "", date: "", review: "", category: "", lat: 0, lng: 0, image: UIImage()))
+}

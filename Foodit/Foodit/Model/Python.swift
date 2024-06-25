@@ -5,13 +5,14 @@
 //  Created by Woody on 6/23/24.
 //
 
-struct LatLng: Decodable{
+struct Python: Decodable{
     var lat: Double
     var lng: Double
+    var address: String
     
-    init(lat: Double, lng: Double) {
+    init(lat: Double, lng: Double, address: String) {
         self.lat = lat
         self.lng = lng
+        self.address = address
     }
 }
-

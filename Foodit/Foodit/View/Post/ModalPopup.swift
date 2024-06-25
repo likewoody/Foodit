@@ -16,9 +16,12 @@ import PhotosUI
 
 struct ModalPopup: View {
     
+    @State var dataFromPython: [Python] = []
     @State var name: String = ""
     @State var review: String = ""
     @State var image: UIImage?
+    @State var isName: Bool = false
+    @State var isNameRight: Bool = false
     @State var isImageDoubleCheck: Bool = false
     @State var isImage: Bool = false
     @State var selectedCategory: String = "음식"
@@ -107,21 +110,49 @@ struct ModalPopup: View {
                         
                         Button(action: {
                             
-                            if isImage {
-                                let insertDate = dateFormatter.string(from: currentDate)
-                                
-                                let query = PostQuery()
-                                let result = query.insertDB(name: name, date: insertDate, review: review, category: selectedCategory, image: image!)
-                                
-                                if result {
-                                    print("inserted sucessfully !!")
-                                    isModal = false
-                                    dismiss()
-                                }else{
-                                    print("failed...")
-                                }
-                            } else{
-                                isImageDoubleCheck = true
+                            if name.isEmpty {
+                                isName = true
+                            }else {
+                                print("inside else")
+                                Task{
+                                    do {
+                                        print("inside task")
+                                        name = name.trimmingCharacters(in: .whitespaces)
+                                        let python = ConnectWithPython()
+                                        dataFromPython = try await python.userAddPlace(url: URL(string: "http://127.0.0.1:8000/place?userInputPlace=\(name)")!)
+                                        print("passed try await")
+                                        print(dataFromPython)
+                                    } catch {
+                                        isNameRight = true
+                                        print("Error occurred: \(error)")
+                                    }
+//                                    print(dataFromPython[0].address)
+//                                    print(dataFromPython[0].lat)
+//                                    print(dataFromPython[0].lng)
+                                    
+                                    // name의 제대로 입력됬을 때를 체크
+                                    if !isNameRight{
+                                        // 그리고 이미지가 들어있는지 체크
+                                        if isImage {
+                                            let insertDate = dateFormatter.string(from: currentDate)
+        
+                                            let query = PostQuery()
+                                            let result = query.insertDB(name: name, address: dataFromPython[0].address, date: insertDate, review: review, category: selectedCategory, lat: dataFromPython[0].lat, lng: dataFromPython[0].lng, image: image!)
+        
+                                            if result {
+                                                print("inserted sucessfully !!")
+                                                isModal = false
+                                                dismiss()
+                                            }else{
+                                                print("failed...")
+                                            }
+                                        } else{
+                                            isImageDoubleCheck = true
+                                        } // if else
+
+                                    } // if
+                                    
+                                } // Task
                             }
                         }, label: {
                             Text("저장하기")
@@ -135,7 +166,25 @@ struct ModalPopup: View {
                         Spacer()
                     }) // VStack
                     .alert("이미지를 선택하세요.", isPresented: $isImageDoubleCheck) {
-                        Text("확인")
+                        Button(action: {
+                            isImageDoubleCheck = false
+                        }, label: {
+                            Text("확인")
+                        })
+                    }
+                    .alert("가게 이름(지점까지 입력)", isPresented: $isName) {
+                        Button(action: {
+                            isName = false
+                        }, label: {
+                            Text("확인")
+                        })
+                    }
+                    .alert("정확한 상호명을 입력해 주셔야 합니다.", isPresented: $isNameRight) {
+                        Button(action: {
+                            isNameRight = false
+                        }, label: {
+                            Text("확인")
+                        })
                     }
                 } // ScrollView
                 
@@ -143,7 +192,7 @@ struct ModalPopup: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(content: {
                 ToolbarItem(placement: .principal) {
-                    Text("푸딧")
+                    Text("추가")
                         .font(.system(size: 18))
                         .bold()
                         .foregroundStyle(.orange)
@@ -155,6 +204,6 @@ struct ModalPopup: View {
     } // body
 } // ModalPopup
 
-#Preview {
-    ModalPopup(isModal: .constant(true))
-}
+//#Preview {
+//    ModalPopup(dataFromPython: Python, isModal: .constant(true))
+//}

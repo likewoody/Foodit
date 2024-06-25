@@ -4,9 +4,8 @@
 //
 //  Created by Woody on 6/23/24.
 //
-
-import UIKit
 import NMapsMap
+import SwiftUI
 
 // - NMFMapViewCameraDelegate 카메라 이동에 필요한 델리게이트,
 // - NMFMapViewTouchDelegate 맵 터치할 때 필요한 델리게이트,
@@ -18,8 +17,11 @@ class Coordinator: NSObject, ObservableObject,
                          CLLocationManagerDelegate {
     static let shared = Coordinator()
     
+    
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
+    @Published var id: Int = 0
+    @Published var isMapDetail: Bool = false
     
     // 사용자의 위치값은 CLLocationManager를 통해 받아준다.
     var locationManager: CLLocationManager?
@@ -97,7 +99,7 @@ class Coordinator: NSObject, ObservableObject,
         @unknown default:
             break
         }
-    }
+    } // checkLocationAuthorization()
     
     // 1. MapView의 .onAppear()로 실행
     func checkIfLocationServiceIsEnabled() {
@@ -113,14 +115,15 @@ class Coordinator: NSObject, ObservableObject,
             } else {
                 print("Show an alert letting them know this is off and to go turn i on")
             }
-        }
-    }
+        } // DispatchQueue
+    } // checkIfLocationServiceIsEnabled()
     
     // MARK: - NMFMapView에서 제공하는 locationOverlay를 현재 위치로 설정
     func fetchUserLocation() {
         if let locationManager = locationManager {
             let lat = locationManager.location?.coordinate.latitude
             let lng = locationManager.location?.coordinate.longitude
+            
             
             let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0), zoomTo: 15)
             cameraUpdate.animation = .easeIn
@@ -137,8 +140,8 @@ class Coordinator: NSObject, ObservableObject,
             
             // 지도를 사용자 위치로 이동
             view.mapView.moveCamera(cameraUpdate)
-        }
-    }
+        } // if
+    } // fetchUserLocation()
     
     // MARK: user가 search Input을 onSubmit 했을 때
     func userSearchInputOnSubmitted(){
@@ -162,26 +165,64 @@ class Coordinator: NSObject, ObservableObject,
     
         // 지도를 사용자 위치로 이동
         view.mapView.moveCamera(cameraUpdate)
-    }
+    } // userSearchInputOnSubmitted()
     
     func getNaverMapView() -> NMFNaverMapView {
         view
-    }
+    } // getNaverMapView()
     
     // 마커 부분의 lat lng를 init 부분에 호출해서 사용하면 바로 사용가능하지만
     // 파이어베이스 연동의 문제를 생각해서 받아오도록 만들었습니다.
     // MARK: for 마커
-    // 이분은 firebase로 DB를 사용 하지만 난 MySQL로 테스트 예정
-    func setMarker(lat : Double, lng:Double) {
-        let marker = NMFMarker()
-        marker.iconImage = NMF_MARKER_IMAGE_PINK
-        marker.position = NMGLatLng(lat: lat, lng: lng)
-        marker.mapView = view.mapView
+    func setMarker(postList: [Post]){
+//        print(postList)
+//        lat : Double, lng:Double
         
-        let infoWindow = NMFInfoWindow()
-        let dataSource = NMFInfoWindowDefaultTextSource.data()
-        dataSource.title = "서울특별시청"
-        infoWindow.dataSource = dataSource
-        infoWindow.open(with: marker)
-    }
+        for post in postList{
+            // 마커 instance 생성
+            let marker = NMFMarker()
+            
+            // 마커 색상
+            if post.category == "음식" {
+                marker.iconImage = NMFOverlayImage(name: "food")
+            }else if post.category == "커피" {
+                marker.iconImage = NMFOverlayImage(name: "coffee")
+            }else{
+                marker.iconImage = NMFOverlayImage(name: "bakery")
+            }        
+            
+            // 마커 좌표
+            marker.position = NMGLatLng(lat: post.lat, lng: post.lng)
+            
+            // 마커 size 설정
+            marker.width = 25
+            marker.height = 40
+            marker.mapView = view.mapView
+            
+            let infoWindow = NMFInfoWindow()
+            let dataSource = NMFInfoWindowDefaultTextSource.data()
+            
+            // 마커를 탭하면:
+            let handler = {(overlay: NMFOverlay) -> Bool in
+                if let marker = overlay as? NMFMarker {
+                    if marker.infoWindow == nil {
+                        self.id = post.id
+                        self.isMapDetail = true
+                        // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+//                        dataSource.title = post.name
+//                        infoWindow.dataSource = dataSource
+//                        infoWindow.open(with: marker)
+                    } 
+//                    else {
+//                        // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+////                        infoWindow.close()
+//
+//                    }
+                }
+                return true
+            }
+            marker.touchHandler = handler
+        } // for
+    } // setMarker()
+    
 }
