@@ -27,24 +27,23 @@ Used API<br>
 
 #### Map
 
-<img src="https://github.com/likewoody/Foodit/assets/151493474/ff4707b8-b9b4-4768-937c-8dace42a4061">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/fa7dd67f-7ea4-4698-bfa2-a852e96bae64">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/3ab19ee6-4025-49dc-9624-945d2fe9a745"><br>
+<img src="https://github.com/likewoody/Foodit/assets/151493474/3ee67be9-b0bb-47bd-9061-9acc3605da6d">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/263242bb-9026-45a1-8c08-9ea0b1bf6150">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/4fe3478c-8b96-445f-a83a-ca677f97ac78"><br>
 
 #### Update
 
-<img src="https://github.com/likewoody/Foodit/assets/151493474/a4cbe41a-f4b2-4027-99f0-906a16c2335d">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/a6bd8608-570a-4178-a0b8-9e53d98a476b"><br>
-<img src="https://github.com/likewoody/Foodit/assets/151493474/ab919710-d54b-43b1-bf85-3923e3bddba5">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/fcaa3a5a-c4a6-47eb-b82a-a7d87d52f4e0"><br>
+<img src="https://github.com/likewoody/Foodit/assets/151493474/c582d4ff-999a-4c3e-80de-6fc030989b06">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/b55281b7-a7ba-4275-b91b-9b7f8a7a7f6a">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/42612b9b-79c5-449d-9148-6c5b6fd14605"><br>
 
 
 #### Insert
 
-<img src="https://github.com/likewoody/Foodit/assets/151493474/42e4579e-5cc5-4688-bcdf-bfb8196b9029">
-<img src="https://github.com/likewoody/Foodit/assets/151493474/b6933833-7268-45e1-826c-7ceaabdc257e"><br>
-
-<img src="https://github.com/likewoody/Foodit/assets/151493474/9f268c79-75cb-4ed2-96ed-07ad40eacd32">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/22902a6a-f55c-4e01-a59d-d265eb2b2fe7">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/51676583-c5cc-47cf-97d2-e3c87308d6db"><br>
+<img src="https://github.com/likewoody/Foodit/assets/151493474/c858ade2-bf0f-4102-bc59-5a410e36ecc5">
+<img src="https://github.com/likewoody/Foodit/assets/151493474/5177426f-9835-4515-8337-94ef593ce625"><br>
 
 <br><br>
 
