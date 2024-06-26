@@ -18,6 +18,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @State var selection: Int = 0
+
     
     var body: some View {
         
@@ -43,13 +44,11 @@ struct MainTabView: View {
                             .tag(1)
 
                     } // Group
-                    .toolbarBackground(.orange, for: .tabBar)
+                    .toolbarBackground(.beige, for: .tabBar)
                     .toolbarBackground(.visible, for: .tabBar)
-                    .toolbarColorScheme(.dark, for: .tabBar)
-                    
-                    
-                }) // TabView
+                    .preferredColorScheme(.light)
 
+                }) // TabView
 
             }) // ZStack
             

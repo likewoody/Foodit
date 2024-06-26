@@ -49,7 +49,7 @@ struct ModalPopup: View {
                         // MARK: Body Field
                         // 사진 선택
                         PhotosPicker("사진 선택", selection: $selectedImg, matching: .images)
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.accent)
                             .padding()
                             .onChange(of: selectedImg, {
                                 Task{
@@ -85,7 +85,7 @@ struct ModalPopup: View {
                             })
                             .padding()
                             .pickerStyle(.menu)
-                            .colorInvert()
+                            .foregroundStyle(.blue)
                         })
 
                         
@@ -155,11 +155,11 @@ struct ModalPopup: View {
                                 } // Task
                             }
                         }, label: {
-                            Text("저장하기")
+                            Text("저장")
                                 .bold()
-                                .frame(width: 120, height: 40)
+                                .frame(width: 100, height: 30)
                                 .padding()
-                                .background(.orange)
+                                .background(.accent)
                                 .foregroundStyle(.white)
                                 .clipShape(.rect(cornerRadius: 20))
                         }) // Button
@@ -195,7 +195,7 @@ struct ModalPopup: View {
                     Text("추가")
                         .font(.system(size: 18))
                         .bold()
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(.accent)
                 } // ToolbarItem
             }) // toolbar
             .preferredColorScheme(.light)

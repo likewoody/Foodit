@@ -32,6 +32,7 @@ struct MapDetail: View {
                 
                 Text("카테고리")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(.accent)
                 TextField(category, text: $category)
                     .disabled(true)
                     .frame(maxWidth: .infinity)
@@ -39,6 +40,7 @@ struct MapDetail: View {
                 
                 Text("가게명")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(.accent)
                 TextField(name, text: $name)
                     .disabled(true)
                     .frame(maxWidth: .infinity)
@@ -46,6 +48,7 @@ struct MapDetail: View {
                 
                 Text("가게 주소")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(.accent)
                 TextField(address, text: $address)
                     .disabled(true)
                     .frame(maxWidth: .infinity)
@@ -55,6 +58,7 @@ struct MapDetail: View {
                 
                 Text("리뷰")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(.accent)
                 TextEditor(text: $review)
                     .disabled(true)
                     .border(.gray.opacity(0.2))

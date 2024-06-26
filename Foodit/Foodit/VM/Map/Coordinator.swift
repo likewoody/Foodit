@@ -25,6 +25,7 @@ class Coordinator: NSObject, ObservableObject,
     
     // 사용자의 위치값은 CLLocationManager를 통해 받아준다.
     var locationManager: CLLocationManager?
+    var markers: [NMFMarker] = []
     let startInfoWindow = NMFInfoWindow()
     
     let view = NMFNaverMapView(frame: .zero)
@@ -178,51 +179,58 @@ class Coordinator: NSObject, ObservableObject,
 //        print(postList)
 //        lat : Double, lng:Double
         
-        for post in postList{
-            // 마커 instance 생성
-            let marker = NMFMarker()
-            
-            // 마커 색상
-            if post.category == "음식" {
-                marker.iconImage = NMFOverlayImage(name: "food")
-            }else if post.category == "커피" {
-                marker.iconImage = NMFOverlayImage(name: "coffee")
-            }else{
-                marker.iconImage = NMFOverlayImage(name: "bakery")
-            }        
-            
-            // 마커 좌표
-            marker.position = NMGLatLng(lat: post.lat, lng: post.lng)
-            
-            // 마커 size 설정
-            marker.width = 25
-            marker.height = 40
-            marker.mapView = view.mapView
-            
-            let infoWindow = NMFInfoWindow()
-            let dataSource = NMFInfoWindowDefaultTextSource.data()
-            
-            // 마커를 탭하면:
-            let handler = {(overlay: NMFOverlay) -> Bool in
-                if let marker = overlay as? NMFMarker {
-                    if marker.infoWindow == nil {
-                        self.id = post.id
-                        self.isMapDetail = true
-                        // 현재 마커에 정보 창이 열려있지 않을 경우 엶
-//                        dataSource.title = post.name
-//                        infoWindow.dataSource = dataSource
-//                        infoWindow.open(with: marker)
-                    } 
-//                    else {
-//                        // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-////                        infoWindow.close()
-//
-//                    }
-                }
-                return true
+        if markers.count != postList.count {
+            // MARK: marker 지우기
+            for i in 0..<markers.count{
+                markers[i].mapView = nil // 지우기 성공!
             }
-            marker.touchHandler = handler
-        } // for
+            
+            for post in postList{
+                // 마커 instance 생성
+                let marker = NMFMarker()
+                
+                // 마커 색상
+                if post.category == "음식" {
+                    marker.iconImage = NMFOverlayImage(name: "food")
+                }else if post.category == "커피" {
+                    marker.iconImage = NMFOverlayImage(name: "coffee")
+                }else{
+                    marker.iconImage = NMFOverlayImage(name: "bakery")
+                }
+                
+                // 마커 좌표
+                marker.position = NMGLatLng(lat: post.lat, lng: post.lng)
+                
+                // 마커 size 설정
+                marker.width = 20
+                marker.height = 30
+                marker.mapView = view.mapView
+                
+    //            let infoWindow = NMFInfoWindow()
+    //            let dataSource = NMFInfoWindowDefaultTextSource.data()
+                
+                // 마커를 탭하면:
+                let handler = {(overlay: NMFOverlay) -> Bool in
+                    if let marker = overlay as? NMFMarker {
+                        if marker.infoWindow == nil {
+                            self.id = post.id
+                            self.isMapDetail = true
+                            // 현재 마커에 정보 창이 열려있지 않을 경우 엶
+    //                        dataSource.title = post.name
+    //                        infoWindow.dataSource = dataSource
+    //                        infoWindow.open(with: marker)
+                        }
+    //                    else {
+    //                        // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
+    ////                        infoWindow.close()
+    //
+    //                    }
+                    }
+                    return true
+                }
+                marker.touchHandler = handler
+                markers.append(marker)
+            } // for
+        } // if
     } // setMarker()
-    
-}
+} // Coordinator

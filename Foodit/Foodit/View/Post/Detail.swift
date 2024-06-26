@@ -39,11 +39,6 @@ struct Detail: View {
     var currentDate = Date()
     @Environment(\.dismiss) var dismiss
     
-//    init(post: Post) {
-//        self.post = post
-//        UINavigationBar.appearance().barTintColor = UIColor(.orange)
-//    }
-    
     // MARK: View
     var body: some View {
         NavigationStack{
@@ -52,8 +47,7 @@ struct Detail: View {
                     VStack(content: {
                         // MARK: 사진 선택
                         PhotosPicker("사진 선택", selection: $selectedImg, matching: .images)
-//                            .background(.gray)
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.accent)
                             .padding()
                             .onChange(of: selectedImg, {
                                 Task{
@@ -90,7 +84,7 @@ struct Detail: View {
                             })
                             .padding()
                             .pickerStyle(.menu)
-                            .colorInvert()
+                            .foregroundStyle(.blue)
                         }) // HStack
                             .padding(.trailing, geometry.size.width / 4)
                         
@@ -130,9 +124,9 @@ struct Detail: View {
                         }, label: {
                             Text("수정하기")
                                 .bold()
-                                .frame(width: 120, height: 40)
+                                .frame(width: 100, height: 30)
                                 .padding()
-                                .background(.orange)
+                                .background(.accent)
                                 .foregroundStyle(.white)
                                 .clipShape(.rect(cornerRadius: 20))
                         }) // Button
@@ -171,6 +165,7 @@ struct Detail: View {
         .onAppear(perform: {
             loadData()
         })
+        .accentColor(.accent)
     }
     // ---- Function ---
     func loadData(){

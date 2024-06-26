@@ -64,7 +64,7 @@ struct PostView: View {
                             
                             Spacer()
                             
-                            Text("푸딧")
+                            Text("Foodit")
                                 .bold()
                             
                             Spacer()
@@ -76,7 +76,7 @@ struct PostView: View {
                             
                         }) // HStack
                         .font(.system(size: 18))
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(.accent)
                     } // ToolbarItem
                 }) // toolbar
 

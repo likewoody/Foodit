@@ -58,17 +58,15 @@ struct MainMapView: View {
             } // ZStack
             .preferredColorScheme(.light)
             .onAppear {
+                search = ""
                 let query = PostQuery()
                 postList = query.searchDB()
-//                print("check")
-//                print(postList)
                 
+                for i in postList{
+                    print(i.name)
+                    print(i.id)
+                }
                 Coordinator.shared.checkIfLocationServiceIsEnabled()
-    //                    Task {
-    //                        await firestoreManager.fetchData()
-                // fetchData는 Firebase에 올라간 데이터에 접근해서 lat, leg를 불러오는 함수 입니다.
-    //                        Coordinator.shared.setMarker(lat: firestoreManager.mylat, lng: firestoreManager.mylng)
-    //                    }
                 Coordinator.shared.setMarker(postList: postList)
             } // onAppear
             .sheet(isPresented: $coordinator.isMapDetail, content: {
