@@ -66,12 +66,16 @@ struct MainMapView: View {
                     print(i.name)
                     print(i.id)
                 }
-                Coordinator.shared.checkIfLocationServiceIsEnabled()
-                Coordinator.shared.setMarker(postList: postList)
+                coordinator.checkIfLocationServiceIsEnabled()
+                coordinator.setMarker(postList: postList)
             } // onAppear
             .sheet(isPresented: $coordinator.isMapDetail, content: {
                 MapDetail(id: $coordinator.id)
             })
+//            .onChange(of: coordinator.coord.0) {
+//                print("changed coordinator.coord.0 : \(coordinator.coord)")
+//                coordinator.checkIfLocationServiceIsEnabled()
+//            }
         }) // GeometryReader
         
     } // body

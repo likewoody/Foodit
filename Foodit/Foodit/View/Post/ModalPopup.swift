@@ -87,19 +87,21 @@ struct ModalPopup: View {
                             .pickerStyle(.menu)
                             .foregroundStyle(.blue)
                         })
-
-                        
                             .padding(.trailing, geometry.size.width / 4)
+                        
+                        // 가게명 입력
                         TextEditor(text: $name)
                             .border(.gray.opacity(0.2))
                             .textFieldStyle(.roundedBorder)
                             .multilineTextAlignment(.leading)
-                            .frame(width: geometry.size.width / 1.3, height: geometry.size.height / 20)
+                            .frame(width: geometry.size.width / 1.3, height: geometry.size.height / 16.5)
                             .focused($isTextfieldFocused)
                             .padding(.bottom, 15)
                         
                         Text("후기 남기기")
                             .padding(.trailing, geometry.size.width / 2)
+                        
+                        // 후기 입력
                         TextEditor(text: $review)
                             .border(.gray.opacity(0.2))
                             .multilineTextAlignment(.leading)

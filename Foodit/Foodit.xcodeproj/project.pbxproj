@@ -12,6 +12,7 @@
 		C80CDC252C27D4A1009B1690 /* ConnectWithPython.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC242C27D4A1009B1690 /* ConnectWithPython.swift */; };
 		C80CDC272C27D4B2009B1690 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CDC262C27D4B2009B1690 /* Python.swift */; };
 		C847C0C92C28406D00BF9C43 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C847C0C82C28406D00BF9C43 /* BottomSheet.swift */; };
+		C858FA662C2BFE9B00F000BA /* Foodit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C858FA652C2BFE9B00F000BA /* Foodit.storyboard */; };
 		C88A284D2C27D7E6002AA7FD /* ModalPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */; };
 		C88A284F2C27DC72002AA7FD /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A284E2C27DC72002AA7FD /* Detail.swift */; };
 		C8BD4C3A2C27D0C6008B08C0 /* FooditApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */; };
@@ -39,6 +40,7 @@
 		C80CDC262C27D4B2009B1690 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
 		C847C0C82C28406D00BF9C43 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		C858FA622C2BE7FB00F000BA /* Foodit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodit.entitlements; sourceTree = "<group>"; };
+		C858FA652C2BFE9B00F000BA /* Foodit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Foodit.storyboard; sourceTree = "<group>"; };
 		C88A284C2C27D7E6002AA7FD /* ModalPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPopup.swift; sourceTree = "<group>"; };
 		C88A284E2C27DC72002AA7FD /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		C8BD4C362C27D0C6008B08C0 /* Foodit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 				C8BD4C392C27D0C6008B08C0 /* FooditApp.swift */,
 				C8BD4C3D2C27D0C7008B08C0 /* Assets.xcassets */,
 				C8BD4C3F2C27D0C7008B08C0 /* Preview Content */,
+				C858FA652C2BFE9B00F000BA /* Foodit.storyboard */,
 			);
 			path = Foodit;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C858FA662C2BFE9B00F000BA /* Foodit.storyboard in Resources */,
 				C8BD4C412C27D0C7008B08C0 /* Preview Assets.xcassets in Resources */,
 				C8BD4C3E2C27D0C7008B08C0 /* Assets.xcassets in Resources */,
 			);
@@ -467,15 +471,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foodit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Foodit;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱이 실행 중일 때 더 나은 서비스를 제공하기 위해 사용자의 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱이 실행 중일 때 더 나은 서비스를 제공하기 위해 사용자의 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Foodit.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,15 +510,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foodit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Foodit;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "앱이 실행 중일 때 더 나은 서비스를 제공하기 위해 사용자의 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱이 실행 중일 때 더 나은 서비스를 제공하기 위해 사용자의 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Foodit.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

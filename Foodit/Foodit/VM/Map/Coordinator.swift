@@ -82,8 +82,13 @@ class Coordinator: NSObject, ObservableObject,
             
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-            // naver danymic map test 해본 결과 사용량 1번 밖에 증가하지 않아서 이대로 사용 해도 될 것 같음
-            checkLocationAuthorization()
+            // 실제로 TestFlight를 통해 앱을 실행해보니 repeat으로 하니까 battery 소모가 매우 심한 것 같음
+            // 그래서 강제 Timer로 delay주며 위치 동의 여부에 대해서 처리한다.
+            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { timer in
+//                 naver danymic map. test 해본 결과 사용량 1번 밖에 증가하지 않아서 이대로 사용 해도 될 것 같음
+                self.checkLocationAuthorization()
+                print("restart checkLocation Authorization")
+            }
             print("not yet")
         case .restricted:
             print("위치 정보 접근이 제한되었습니다.")
@@ -100,6 +105,7 @@ class Coordinator: NSObject, ObservableObject,
         @unknown default:
             break
         }
+        
     } // checkLocationAuthorization()
     
     // 1. MapView의 .onAppear()로 실행
@@ -144,6 +150,8 @@ class Coordinator: NSObject, ObservableObject,
         } // if
     } // fetchUserLocation()
     
+    
+    
     // MARK: user가 search Input을 onSubmit 했을 때
     func userSearchInputOnSubmitted(){
         print("when user inputs search")
@@ -171,6 +179,8 @@ class Coordinator: NSObject, ObservableObject,
     func getNaverMapView() -> NMFNaverMapView {
         view
     } // getNaverMapView()
+    
+    
     
     // 마커 부분의 lat lng를 init 부분에 호출해서 사용하면 바로 사용가능하지만
     // 파이어베이스 연동의 문제를 생각해서 받아오도록 만들었습니다.
