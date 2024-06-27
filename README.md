@@ -1,3 +1,6 @@
+
+<img src="https://github.com/likewoody/Foodit/assets/151493474/15d68109-bfe5-4054-835b-023750f5853d"><br><br>
+
 # Foodit
 나만의 맛집 스토리(히스토리)
 <br><br>
