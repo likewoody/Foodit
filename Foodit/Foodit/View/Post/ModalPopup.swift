@@ -31,12 +31,15 @@ struct ModalPopup: View {
     var dateFormatter: DateFormatter{
         let formatter = DateFormatter()
         // HH -> 24, hh -> 12
-        formatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd EEE"
         
         return formatter
     }
+    // 간단하게 사용할 수 있는 SwiftUI 기능인거 같다. 좀 찾아봐야 할듯
+    @State var selectedDate = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
+    @State var isSelectedDate: Bool = false
     @Binding var isModal: Bool
-    var currentDate = Date()
+    
     @Environment(\.dismiss) var dismiss
     
     
@@ -73,8 +76,27 @@ struct ModalPopup: View {
                         
                         HStack(content: {
                             Spacer()
-                            Text("가게 상호명 (정확한 상호명)")
-                                .padding(.leading, 18)
+                            
+                            // True일 때는 datepicker를 통해 날짜를 선택하고
+                            if isSelectedDate{
+                                DatePicker("", selection: $selectedDate, displayedComponents: [.date, .date])
+    //                                .labelsHidden()
+                                    .datePickerStyle(.compact)
+                                    .onChange(of: selectedDate) {
+                                        isSelectedDate = false
+                                    }
+                            }else {
+                                // 그게 아니라면 날짜를 text로 보여준다
+                                Button(action: {
+                                    isSelectedDate = true
+                                    
+                                    
+                                }, label: {
+                                    Text(selectedDate, style: .date)
+                                        .padding(.leading, 30)
+                                })
+                            } // if ~ else
+                            
                             
                             Spacer()
                             
@@ -83,11 +105,16 @@ struct ModalPopup: View {
                                     Text(category)
                                 }
                             })
+//                            .labelsHidden()
                             .padding()
                             .pickerStyle(.menu)
                             .foregroundStyle(.blue)
                         })
                             .padding(.trailing, geometry.size.width / 4)
+                        
+                        Text("가게 상호명 (정확한 상호명)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 58)
                         
                         // 가게명 입력
                         TextEditor(text: $name)
@@ -121,7 +148,9 @@ struct ModalPopup: View {
                                         print("inside task")
                                         name = name.trimmingCharacters(in: .whitespaces)
                                         let python = ConnectWithPython()
-                                        dataFromPython = try await python.userAddPlace(url: URL(string: "http://127.0.0.1:8000/place?userInputPlace=\(name)")!)
+                                        dataFromPython = try await python.userAddPlace(url: URL(string: "http://localhost:8000/place?userInputPlace=\(name)")!)
+                                        
+//                                        localhost
                                         print("passed try await")
                                         print(dataFromPython)
                                     } catch {
@@ -136,7 +165,7 @@ struct ModalPopup: View {
                                     if !isNameRight{
                                         // 그리고 이미지가 들어있는지 체크
                                         if isImage {
-                                            let insertDate = dateFormatter.string(from: currentDate)
+                                            let insertDate = dateFormatter.string(from: selectedDate)
         
                                             let query = PostQuery()
                                             let result = query.insertDB(name: name, address: dataFromPython[0].address, date: insertDate, review: review, category: selectedCategory, lat: dataFromPython[0].lat, lng: dataFromPython[0].lng, image: image!)
@@ -206,6 +235,7 @@ struct ModalPopup: View {
     } // body
 } // ModalPopup
 
-//#Preview {
-//    ModalPopup(dataFromPython: Python, isModal: .constant(true))
-//}
+#Preview {
+//dataFromPython: Python,
+    ModalPopup( isModal: .constant(true))
+}

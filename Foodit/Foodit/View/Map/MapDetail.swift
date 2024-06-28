@@ -15,6 +15,7 @@ struct MapDetail: View {
     @State var address: String = ""
     @State var category: String = ""
     @State var review: String = ""
+    @State var selectedDate: String = ""
     @State var image: UIImage?
     
     
@@ -29,6 +30,13 @@ struct MapDetail: View {
                         .scaledToFit()
                         .padding()
                 } // if let
+                Text("날짜")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(.accent)
+                TextField(selectedDate, text: $selectedDate)
+                    .disabled(true)
+                    .frame(maxWidth: .infinity)
+                    .textFieldStyle(.roundedBorder)
                 
                 Text("카테고리")
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -79,6 +87,7 @@ struct MapDetail: View {
             category = post[0].category
             image = post[0].image
             review = post[0].review
+            selectedDate = post[0].date
         }) // onAppear
         
     } // body

@@ -37,7 +37,8 @@ struct MainMapView: View {
                                     // submit 하면 실행할 action
                                     let searchUserInput = ConnectWithPython()
                                     Task{
-                                        let result = try await searchUserInput.userAddPlace(url: URL(string: "http://127.0.0.1:8000/place?userInputPlace=\(search)")!)
+                                        let result = try await searchUserInput.userAddPlace(url: URL(string: "http://localhost:8000/place?userInputPlace=\(search)")!)
+//                                        localhost
                                             
                                         print("result :  \(result)")
                                         

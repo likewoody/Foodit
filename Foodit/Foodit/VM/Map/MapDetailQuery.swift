@@ -57,7 +57,7 @@ class MapDetailQuery: ObservableObject {
     // 작업처리가 몇번 덜 움직이기 때문에 효율적이다.
     func searchDB(id: Int) -> [MapDetailModel]{
         var stmt: OpaquePointer?
-        let queryString = "SELECT name, address, category, review, image FROM post WHERE id = ?"
+        let queryString = "SELECT name, address, category, review, date, image FROM post WHERE id = ?"
         
         // 에러가 발생하는지 확인하기 위해서 if문 사용
         // -1 unlimit length 데이터 크기를 의미한다
@@ -75,16 +75,17 @@ class MapDetailQuery: ObservableObject {
             let address = String(cString: sqlite3_column_text(stmt, 1))
             let category = String(cString: sqlite3_column_text(stmt, 2))
             let review = String(cString: sqlite3_column_text(stmt, 3))
+            let date = String(cString: sqlite3_column_text(stmt, 4))
             
             var image: UIImage = UIImage()
             // Blob 이미지를 UIImage로 만들기
-            if let blobImg = sqlite3_column_blob(stmt, 4) {
-                let blobImgLength = sqlite3_column_bytes(stmt, 4)
+            if let blobImg = sqlite3_column_blob(stmt, 5) {
+                let blobImgLength = sqlite3_column_bytes(stmt, 5)
                 let img = Data(bytes: blobImg, count: Int(blobImgLength))
                 image = UIImage(data: img)!
             }
             
-            mapDetail.append(MapDetailModel(name: name, address: address, category: category, review: review, image: image))
+            mapDetail.append(MapDetailModel(name: name, address: address, category: category, review: review, date: date, image: image))
         }
         return mapDetail
     }

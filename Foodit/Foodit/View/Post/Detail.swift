@@ -11,7 +11,6 @@
  Description : 1차 UI frame 작업 & 저장하기 Button 클릭 시 DB 저장 완료
 */
 
-
 import SwiftUI
 import PhotosUI
 
@@ -32,11 +31,13 @@ struct Detail: View {
     var dateFormatter: DateFormatter{
         let formatter = DateFormatter()
         // HH -> 24, hh -> 12
-        formatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd EEE"
         
         return formatter
     }
-    var currentDate = Date()
+    // 간단하게 사용할 수 있는 SwiftUI 기능인거 같다. 좀 찾아봐야 할듯
+    @State var selectedDate = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
+    @State var isSelectedDate: Bool = false
     @Environment(\.dismiss) var dismiss
     
     // MARK: View
@@ -71,10 +72,25 @@ struct Detail: View {
                         
                         HStack(content: {
                             Spacer()
-                            Text("가게 상호명 (수정 불가)")
-                                .padding(.leading, 18)
+                            if isSelectedDate{
+                                DatePicker("", selection: $selectedDate, displayedComponents: [.date, .date])
+    //                                .labelsHidden()
+                                    .datePickerStyle(.compact)
+                                    .onChange(of: selectedDate) {
+                                        isSelectedDate = false
+                                    }
+                            }else {
+                                // 그게 아니라면 날짜를 text로 보여준다
+                                Button(action: {
+                                    isSelectedDate = true
+                                    
+                                    
+                                }, label: {
+                                    Text(selectedDate, style: .date)
+                                        .padding(.leading, 30)
+                                })
+                            } // if ~ else
 
-                            
                             Spacer()
                             
                             Picker("", selection: $selectedCategory, content: {
@@ -87,6 +103,12 @@ struct Detail: View {
                             .foregroundStyle(.blue)
                         }) // HStack
                             .padding(.trailing, geometry.size.width / 4)
+                        
+                        
+                        Text("가게 상호명 (수정 불가)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 58)
+                        
                         
                         // name Text Editor
                         TextEditor(text: $name)
@@ -112,7 +134,7 @@ struct Detail: View {
                         
                         Button(action: {
                             
-                            let insertDate = dateFormatter.string(from: currentDate)
+                            let insertDate = dateFormatter.string(from: selectedDate)
                             
                             let query = PostQuery()
                             isUpdate = query.updateDB(date: insertDate, review: review, category: selectedCategory, image: image!, id: post.id)
@@ -172,10 +194,22 @@ struct Detail: View {
         name = post.name
         review = post.review
         image = post.image
-        selectedCategory = post.category
+        
+        // for Date 가져오기 from post
+        // 설정된 형식과 같은 타입의 format으로 가져온다.
+        if let postDate = dateFormatter.date(from: post.date) {
+            // postDate는 Date 타입입니다.
+            selectedDate = postDate
+            print(postDate)
+            
+        } else {
+            // 날짜 변환 실패 처리
+            print("날짜 변환 실패")
+        }
     }
 }
 
+// for Delete Action
 struct BackgroundClearView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
         let view = UIView()
