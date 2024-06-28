@@ -45,9 +45,11 @@ class Coordinator: NSObject, ObservableObject,
         view.showCompass = true //  나침반 : 카메라의 회전 및 틸트 상태를 표현합니다. 탭하면 카메라의 헤딩과 틸트가 0으로 초기화됩니다. 헤딩과 틸트가 0이 되면 자동으로 사라집니다
         view.showScaleBar = true // 스케일 바 : 지도의 축척을 표현합니다. 지도를 조작하는 기능은 없습니다.
         
+        
         view.mapView.addCameraDelegate(delegate: self)
         view.mapView.touchDelegate = self
         checkLocationAuthorization()
+        
         
     }
     

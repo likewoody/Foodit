@@ -23,14 +23,15 @@ struct MainMapView: View {
             ZStack {
                 VStack {
                     NaverMap()
-                        .ignoresSafeArea(.all, edges: .top)
+                        .ignoresSafeArea(edges: .top)
                         .overlay {
                             TextField("검색어를 입력하세요", text: $search)
                                 .padding()
+                                .padding(.leading, 50)
                                 .textFieldStyle(.roundedBorder)
                                 .multilineTextAlignment(.leading)
                                 .focused($isTextFieldFocused)
-                                .offset(x:geometry.size.width / geometry.size.width, y: geometry.size.width - geometry.size.height)
+                                .position(x:geometry.size.width / 2, y: geometry.size.height / geometry.size.height + 30)
 //                            * (-0.45)
                                 .onSubmit {
                                     // submit 하면 실행할 action
@@ -68,6 +69,7 @@ struct MainMapView: View {
                 }
                 coordinator.checkIfLocationServiceIsEnabled()
                 coordinator.setMarker(postList: postList)
+                
             } // onAppear
             .sheet(isPresented: $coordinator.isMapDetail, content: {
                 MapDetail(id: $coordinator.id)
