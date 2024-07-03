@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "*.png50X50_1.png",
+      "filename" : "coffee.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

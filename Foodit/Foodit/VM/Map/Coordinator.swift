@@ -214,8 +214,8 @@ class Coordinator: NSObject, ObservableObject,
                 marker.position = NMGLatLng(lat: post.lat, lng: post.lng)
                 
                 // 마커 size 설정
-                marker.width = 20
-                marker.height = 30
+                marker.width = 15
+                marker.height = 15
                 marker.mapView = view.mapView
                 
     //            let infoWindow = NMFInfoWindow()

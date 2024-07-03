@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "*.png50X50_3.png",
+      "filename" : "bakery.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
